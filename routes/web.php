@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\serviceController;
+use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -78,3 +80,9 @@ Route::prefix('admin')->group(function(){
 Route::get('service/web',[serviceController::class,'web'])->name('web');
 Route::get('service/app',[serviceController::class,'app'])->name('app');
 Route::get('service/seo',[serviceController::class,'seo'])->name('seo');
+
+
+
+//  CRUD ELOQUENT ORM
+Route::get('/add-product',[ProductController::class,'create']);
+Route::post('/add-product', [ProductController::class, 'store']);
