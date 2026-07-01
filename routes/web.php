@@ -86,3 +86,8 @@ Route::get('service/seo',[serviceController::class,'seo'])->name('seo');
 //  CRUD ELOQUENT ORM
 Route::get('/add-product',[ProductController::class,'create']);
 Route::post('/add-product', [ProductController::class, 'store']);
+
+// Inert with form validation 
+Route::get('/product', [ProductController::class, 'create_product']);
+
+Route::post('/product/store', [ProductController::class, 'store_product'])->name('product.store');

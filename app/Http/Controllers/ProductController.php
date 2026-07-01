@@ -21,4 +21,25 @@ class ProductController extends Controller
 
         return "Product Added Successfully";
     }
+
+    // Insert with form validation 
+        public function create_product()
+    {
+        return view('product');
+    }
+
+    // FORM STORE
+    public function store_product(Request $request)
+    {
+
+        $request->validate([
+            'name' => 'required|min:3|max:20',
+            'price' => 'required|numeric',
+            'qty' => 'required|numeric|min:1|max:100'
+
+        ]);
+
+        return "Product Saved Successfully";
+
+    }
 }
