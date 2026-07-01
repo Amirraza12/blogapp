@@ -88,6 +88,9 @@ Route::get('/add-product',[ProductController::class,'create']);
 Route::post('/add-product', [ProductController::class, 'store']);
 
 // Inert with form validation 
+Route::get('/products', [ProductController::class, 'index']);
 Route::get('/product', [ProductController::class, 'create_product']);
-
 Route::post('/product/store', [ProductController::class, 'store_product'])->name('product.store');
+Route::get('/products/edit/{id}', [ProductController::class, 'edit']);
+Route::post('/products/update/{id}', [ProductController::class, 'update']);
+Route::get('/products/delete/{id}', [ProductController::class, 'destroy']);
